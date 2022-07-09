@@ -1,0 +1,66 @@
+.Blog {
+    display: grid;
+    border: 2px solid rgb(121, 120, 120);
+    grid-template-rows: 30px 30px 1fr;
+    padding: 10px;
+    margin: 15px;
+    transition: box-shadow 0.1s;
+}
+
+.Blog:hover{
+    box-shadow: 8px 8px rgb(97, 97, 97);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.authorName {
+    padding-right: 10px;
+    padding-left: 10px;
+    font-weight: bold;
+}
+
+.uploadTime {
+    font-size: 14px;
+    margin-top: 15px;
+    margin-right: 10px;
+}
+
+.notChecked {
+    color: rgb(151, 138, 138);
+}
+
+.checked {
+    color: orange;
+}
+
+.deleteBlog {
+    position: absolute;
+    right: 15px;
+    top: 3px;
+    height: 25px;
+    background-color: rgb(105, 32, 32);
+    color: white;
+    border: 0;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.preface {
+    margin-bottom: 10px;
+    margin-left: 10px;
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.content {
+    font-family: Roboto;
+    margin-right: 20px;
+    margin-left: 20px;
+    text-align:justify;
+}
+

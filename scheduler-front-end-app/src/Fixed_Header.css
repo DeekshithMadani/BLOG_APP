@@ -1,0 +1,62 @@
+.FixedHeader {
+    height: 55px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+    border-bottom: 2px solid rgb(156, 154, 154);
+    background-color: rgb(170, 160, 160);
+}
+
+
+.appName {
+    font-size: 30px;
+    font-weight: bold;
+    margin-left: 30px;
+    color: rgb(53, 37, 37) ;
+}
+
+.RightSection{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.createBlog  {
+    height: 34px;
+    background-color: rgb(95, 95, 182);
+    border: none;
+    border-radius: 17px;
+    color: white;
+    font-weight: bold;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.createBlog:hover {
+    box-shadow: 3px 3px rgb(82, 82, 82);
+}
+
+.About  {
+    height: 34px;
+    background-color: rgb(95, 95, 182);
+    border: none;
+    border-radius: 17px;
+    color: white;
+    font-weight: bold;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.About:hover {
+    box-shadow: 3px 3px rgb(82, 82, 82);
+}
+
+.profilePic {
+    height: 50px;
+    margin-right: 50px;
+}
