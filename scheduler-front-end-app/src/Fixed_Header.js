@@ -7,6 +7,7 @@ import Profile from './Profile';
 const FixedHeader = () => {
     const [profileClicked, setProfileClicked] = useState(false);
     const navigate = useNavigate();
+
     const handleCreateSubmit = () => {
         navigate('/dashboard/create')
     }
@@ -16,25 +17,22 @@ const FixedHeader = () => {
     }
 
     const handleProfileClick = () => {
-        //console.log("onclick: " + profileClicked)
-        setProfileClicked(profileClicked)
+        setProfileClicked(!profileClicked)
     }
 
-    const removePopup = (event,clickOnprofileElement) => {
-        let k=clickOnprofileElement.isSameNode(event.target)
-        console.log(profileClicked);
-        if(!k && profileClicked) {
-            console.log('entered stage 2');
+    const removePopup = (event) => {
+        const clickOnprofileElement = document.getElementById('profilePic');
+        if(!clickOnprofileElement.isSameNode(event.target) && profileClicked) {
             setProfileClicked(false)
         }
     }
 
     useEffect(() => {
-        const clickOnprofileElement = document.getElementById('profilePic');
-        document.addEventListener('mouseup',(event) => {
-            removePopup(event,clickOnprofileElement);   
-        })
-    },[])
+        document.addEventListener('mouseup',removePopup)
+        return () => {
+            document.removeEventListener('mouseup',removePopup) 
+        }
+    })
     
     
 
