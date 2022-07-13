@@ -1,13 +1,13 @@
 .Blog {
     display: grid;
     border: 2px solid rgb(121, 120, 120);
-    grid-template-rows: 30px 30px 1fr;
+    grid-template-rows: 30px 35px 1fr;
     padding: 10px;
     margin: 15px;
     transition: box-shadow 0.1s;
 }
 
-.Blog:hover{
+.Blog:hover {
     box-shadow: 8px 8px rgb(97, 97, 97);
 }
 
@@ -49,18 +49,32 @@
     cursor: pointer;
 }
 
+.RecoverBlog {
+    position: absolute;
+    right: 80px;
+    top: 3px;
+    height: 25px;
+    background-color: rgb(101, 101, 167);
+    color: white;
+    border: 0;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
 .preface {
     margin-bottom: 10px;
     margin-left: 10px;
     font-family: Roboto;
     font-size: 20px;
     font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .content {
     font-family: Roboto;
     margin-right: 20px;
     margin-left: 20px;
-    text-align:justify;
+    text-align: justify;
 }
-

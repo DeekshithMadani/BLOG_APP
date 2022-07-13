@@ -3,3 +3,10 @@
     margin-left: 220px;
     margin-right: 260px;
 }
+
+@media screen and (max-width: 900px) {
+    .dashBoardBody {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}

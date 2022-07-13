@@ -7,7 +7,7 @@ const ListPreface = ({ preface, blogid, handleChange, isChecked }) => {
     return <>
         <div className="checkPreface">
             <input type="checkbox" className="selectPreface" name={blogid} onChange={handleChange} checked={isChecked.includes(blogid)?true:false} />
-            <label htmlFor="selectPreface"> {preface}</label>
+            <label htmlFor="selectPreface"> {preface.slice(0, 17) + (preface.length>25? '...':'')}</label>
         </div>
     </>
 
@@ -16,8 +16,6 @@ const ListPreface = ({ preface, blogid, handleChange, isChecked }) => {
 const RightSideBar = ({ blogData, setIsChecked, isChecked }) => {
 
     const [searchPreface,setSearchPreface]=useState('');
-    console.log(blogData)
-    console.log(isChecked)
 
 
     const handleChange = (event) => {

@@ -60,8 +60,6 @@ const LeftSideBar = ({setStarred,setTrash}) => {
                 <img src={logOut} className='icon-img' />
                 <section className="optionName">Logout</section>
             </div>
-
-
         </div>
     </div>
 }

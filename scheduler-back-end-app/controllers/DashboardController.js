@@ -53,4 +53,15 @@ const updatestarredblog = async (req, res) => {
     }
 }
 
-module.exports = { blogsDataFetch, insertBlog, deleteBlog, updatestarredblog }
+const recoverBlog = async (req, res) => {
+    try {
+        const updres = await blog.updateOne({ _id: req.body.id }, { $set: { trash: false } });
+        const data = await blog.find({ uname: uname }).sort({ uploadTime: -1 });
+        res.json({ status: 'ok', data });
+    }
+    catch (err) {
+        res.json({ status: 'error' });
+    }
+}
+
+module.exports = { blogsDataFetch, insertBlog, deleteBlog, updatestarredblog, recoverBlog }

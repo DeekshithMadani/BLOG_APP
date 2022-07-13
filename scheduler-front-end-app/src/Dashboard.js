@@ -132,6 +132,28 @@ const Dashboard = () => {
         }
     }
 
+    const recoverBlog = async (id, uname) => {
+        const blogData_recover_response = await fetch('http://localhost:5000/dashboard/recoverBlog', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id, uname })
+        });
+
+        const blogData_After_recovery = await blogData_recover_response.json();
+
+        if (blogData_After_recovery.status === 'ok') {
+            setBlogData(blogData_After_recovery)
+            if (blogData_After_recovery.data.length > 0) {
+                setIsChecked(blogData_After_recovery.data.filter((blog) => blog.trash).map((blog) => { return blog._id }))
+            }
+            else {
+                setIsChecked([])
+            }
+        }
+    }
+
     useEffect(() => { fetchData() }, [starred, trash])
 
 
@@ -150,7 +172,7 @@ const Dashboard = () => {
 
         {!starred && !trash ? blogData.data.filter((blog) => !blog.trash).filter((blog) => isChecked.includes(blog._id)).map((blog) => <Blogs key={blog._id} pk={blog._id} removeBlog={removeBlog} uname={blog.uname} authorName={blog.authorName} uploadTime={blog.uploadTime} preface={blog.preface} content={blog.content} trash={trash} updateStarred={updateStarred} blogStarred={blog.starred}/>)
             : starred ? blogData.data.filter((blog) => blog.starred).filter((blog) => isChecked.includes(blog._id)).map((blog) => <Blogs key={blog._id} pk={blog._id} removeBlog={removeBlog} uname={blog.uname} authorName={blog.authorName} uploadTime={blog.uploadTime} preface={blog.preface} content={blog.content} trash={trash} updateStarred={updateStarred}  blogStarred={blog.starred}/>)
-                : blogData.data.filter((blog) => blog.trash).filter((blog) => isChecked.includes(blog._id)).map((blog) => <Blogs key={blog._id} pk={blog._id} removeBlog={removeBlog} uname={blog.uname} authorName={blog.authorName} uploadTime={blog.uploadTime} preface={blog.preface} content={blog.content} trash={trash} />)}
+                : blogData.data.filter((blog) => blog.trash).filter((blog) => isChecked.includes(blog._id)).map((blog) => <Blogs key={blog._id} pk={blog._id} removeBlog={removeBlog} uname={blog.uname} authorName={blog.authorName} uploadTime={blog.uploadTime} preface={blog.preface} content={blog.content} trash={trash} recoverBlog={recoverBlog}/>)}
     </div>
 }
 

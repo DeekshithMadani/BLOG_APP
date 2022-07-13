@@ -66,7 +66,7 @@ const CreateBlog = () => {
         <div className='createblogpage'>
             <form onSubmit={AddBlogData}>
                 <label htmlFor='preface' className='label'>PREFACE: </label>
-                <input name='preface' type='text' placeholder='Enter Preface' className='prefaceInp' maxLength="200" value={preface} onChange={(e) => { setPreface(e.target.value) }} required />
+                <input name='preface' type='text' placeholder='Enter Preface' className='prefaceInp' maxLength="50" value={preface} onChange={(e) => { setPreface(e.target.value) }} required />
                 <br />
                 <div className='alignItem'>
                     <label htmlFor='content' className='label'>CONTENT: </label>

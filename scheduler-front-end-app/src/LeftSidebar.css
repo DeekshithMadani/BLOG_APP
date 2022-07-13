@@ -13,15 +13,30 @@
 }
 
 
+
+@media screen and (max-width: 900px) {
+    .leftsidebar {
+        display: none;
+    }
+}
+
 .aboveSection {
     position: relative;
     top: 50px;
 }
 
+
 .belowSection {
     position: relative;
     bottom: 50px;
 }
+
+@media screen and (max-height: 400px) {
+    .belowSection {
+      display: none;
+    }
+}
+
 
 .option {
     display: flex;
